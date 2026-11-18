@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusFind - Lost & Found</title>
+    <link rel="stylesheet" href="style.css">
+</head><body><header>
+    <h1>🎓 CampusFind</h1>
+    <p>Lost & Found Management System</p>
+</header>
+
+<!-- LOGIN AND SIGNUP -->
+
+<div id="authArea">
+
+    <div class="auth-box" id="loginForm">
+        <h2>Login</h2>
+
+        <form>
+            <input type="email" id="loginEmail"
+                placeholder="Email Address" required>
+
+            <input type="password" id="loginPassword"
+                placeholder="Password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p>Don't have an account?
+            <button type="button" onclick="showSignup()">Sign Up</button>
+        </p>
+    </div>
+
+    <div class="auth-box" id="signupForm" style="display:none;">
+        <h2>Create Account</h2>
+
+        <form>
+            <input type="text" id="signupName"
+                placeholder="Full Name" required>
+
+            <input type="email" id="signupEmail"
+                placeholder="Email Address" required>
+
+            <input type="password" id="signupPassword"
+                placeholder="Password" required>
+
+            <button type="submit">Create Account</button>
+        </form>
+
+        <p>Already have an account?
+            <button type="button" onclick="showLogin()">Login</button>
+        </p>
+    </div>
+
+</div>
+
+<!-- MAIN APP -->
+
+<main id="appContent" style="display:none;">
+
+    <!-- PROFILE -->
+
+    <section id="profileSection">
+        <h2>My Profile</h2>
+
+        <p><b>Name:</b> <span id="profileName"></span></p>
+        <p><b>Email:</b> <span id="profileEmail"></span></p>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>My Reports</h3>
+                <p id="myTotal">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>My Lost</h3>
+                <p id="myLost">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>My Found</h3>
+                <p id="myFound">0</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD -->
+
+    <section id="dashboardSection">
+        <h2>Dashboard</h2>
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <h3>Total Reports</h3>
+                <p id="totalCount">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Lost Items</h3>
+                <p id="lostCount">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Found Items</h3>
+                <p id="foundCount">0</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- REPORT BUTTONS -->
+
+    <section id="reportSection">
+        <h2>Report an Item</h2>
+
+        <div class="report-buttons">
+            <button type="button" onclick="showReportForm('Lost')">
+                + Report Lost Item
+            </button>
+
+            <button type="button" onclick="showReportForm('Found')">
+                + Report Found Item
+            </button>
+        </div>
+
+        <!-- FORM APPEARS HERE -->
+        <div id="formArea"></div>
+
+    </section>
+
+    <!-- ALL REPORTS -->
+
+    <section id="allReportsSection">
+        <h2>Recent Reports</h2>
+
+        <input type="search" id="searchInput"
+            placeholder="Search items, location or category...">
+
+        <div class="filters">
+            <button type="button" onclick="filterReports('All')">All</button>
+            <button type="button" onclick="filterReports('Lost')">Lost</button>
+            <button type="button" onclick="filterReports('Found')">Found</button>
+        </div>
+
+        <p id="reportCount">Total Reports: 0</p>
+
+        <div id="reportList"></div>
+    </section>
+
+    <!-- MY REPORTS -->
+
+    <section id="myReportsSection">
+        <h2>My Reports</h2>
+
+        <div id="myReportList"></div>
+    </section>
+
+    <!-- NOTIFICATIONS -->
+
+    <section id="notificationsSection">
+        <h2>Notifications</h2>
+
+        <button type="button" onclick="clearNotifications()">
+            Clear Notifications
+        </button>
+
+        <div id="notificationList"></div>
+    </section>
+
+    <!-- LOGOUT -->
+
+    <section class="logout-section">
+        <button type="button" onclick="logout()">Logout</button>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 CampusFind | Lost & Found Management System</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
